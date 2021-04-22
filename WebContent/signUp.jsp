@@ -25,18 +25,19 @@
 	  				<h3 class="card-title text-center text-white">SIGN UP</h3>
 	  			</div>
 	  			<div class="card-body" style="background-color: #00e676;">
-	  				<form id="signUpU">
-	  					<div class="form-group">
-	  						<input type="text" class="form-control" placeholder="Full Name" name="fullname" />
+	  			 <form class = "SIgnUp"  method="post" action="./SLGuardarUsuario">
+    	         <input name="opcion" type="hidden" value="1" />         
+	  		 		<div class="form-group">
+	  						<input type="text" class="form-control" placeholder="Full Name" name="fullname" required />
 	  					</div>
 	  					<div class="form-group">
-	  						<input type="text" class="form-control" placeholder="Username" name="username" />
+	  						<input type="text" class="form-control" placeholder="Username" name="username" required/>
 	  					</div>
 	  					<div class="form-group">
-	  						<input type="email" class="form-control" placeholder="Email" name="email" />
+	  						<input type="email" class="form-control" placeholder="Email" name="email" required/>
 	  					</div>
 	  					<div class="form-group">
-	  						<input type="password" class="form-control" placeholder="Password" name="pwd" />
+	  						<input type="password" class="form-control" placeholder="Password" name="pwd" required/>
 	  					</div>
 	  					<div class="form-group">
 	  						<button type="submit" class="btn btn-block btn-primary"><i class="fas fa-save mr-2"></i>SAVE</button>

@@ -19,7 +19,7 @@ public class DTUsuario {
 	
 	//Método para llenar el resultset usuario
 	public void llenarRsUsuario(Connection c) {
-		String sql = "SELECT * FROM recorrido_v.user WHERE estado <> 3";
+		String sql = "SELECT * FROM recorrido_v.user";
 		try {
 			ps = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE, ResultSet.HOLD_CURSORS_OVER_COMMIT);
 			rsUsuario = ps.executeQuery();
@@ -84,7 +84,7 @@ public class DTUsuario {
 		try {
 			c = PoolConexion.getConnection();
 			this.llenarRsUsuario(c);
-			//Aquí COmienza el Guardar
+			//Aquí Comienza el Guardar
 			rsUsuario.moveToInsertRow();
 			rsUsuario.updateString("fullname", u.getFullName());
 			rsUsuario.updateString("username", u.getUsername());

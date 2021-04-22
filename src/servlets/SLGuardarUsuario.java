@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entities.Usuario;
+import datos.DTUsuario;
+
 /**
  * Servlet implementation class SLGuardarUsuario
  */
@@ -35,9 +38,41 @@ public class SLGuardarUsuario extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String message = "Hello World";
-		response.getWriter().write(message);
-		//doGet(request, response);
+		
+		int opc = 0;
+		opc = Integer.parseInt(request.getParameter("opcion"));
+		
+		Usuario user = new Usuario();
+		DTUsuario dtu =  new DTUsuario();
+		user.setFullName(request.getParameter("fullname"));
+		user.setUsername(request.getParameter("username"));
+		user.setEmail(request.getParameter("email"));
+		user.setPwd(request.getParameter("pwd"));
+		
+		
+		switch(opc){
+		case 1:{
+			try { 
+			if(dtu.agregarUsuario(user)) {
+		        	response.sendRedirect("signIn.jsp?msj=1");
+		        }
+		        else {
+		        	response.sendRedirect("signIn.jsp?msj=2");
+		        }
+		        	
+	        	
+	        }
+	        catch(Exception e) {
+	        	System.out.println("Error al guardar usuario: " + e.getMessage());
+				e.printStackTrace();
+	        }
+	        
+			break;
+		}
+		
+		}
+	
+		
 	}
 
 }

@@ -18,8 +18,8 @@ public class PoolConexion
 	
 	private static String db = "recorrido_virtual";
 	private static String url = "jdbc:postgresql://localhost:5432/"+db;
-	private static String user = "cristian12t";
-	private static String pass = "mariagabriela12";
+	private static String user = "postgres";
+	private static String pass = "Imp2@20";
 	
 	private PoolConexion()
 	{
